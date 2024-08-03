@@ -1,0 +1,14 @@
+name = "minswap/cip_68_nft_management"
+version = "0.0.0"
+license = "Apache-2.0"
+description = "Aiken contracts for project 'minswap/cip_68_nft_management'"
+
+[repository]
+user = "minswap"
+project = "cip_68_nft_management"
+platform = "github"
+
+[[dependencies]]
+name = "aiken-lang/stdlib"
+version = "1.9.0"
+source = "github"

@@ -1,0 +1,222 @@
+{
+  "preamble": {
+    "title": "minswap/cip_68_nft_management",
+    "description": "Aiken contracts for project 'minswap/cip_68_nft_management'",
+    "version": "0.0.0",
+    "plutusVersion": "v2",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.0.29-alpha+16fb02e"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "nft_management_validator.spend",
+      "datum": {
+        "title": "datum",
+        "schema": {
+          "$ref": "#/definitions/nft_management_validator~1ValidatorDatum"
+        }
+      },
+      "redeemer": {
+        "title": "_redeemer",
+        "schema": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "compiledCode": "5904f70100003232323232323223232323232225333009323232533300c3009300d37540022646464646464646464a66602a6026602c6ea80044c8c8c8c8c8c8c94ccc070c068c074dd500089919299980f180e180f9baa001132533301f3370e900218101baa0011323253330210071533302100513375e601260466ea8c028c08cdd5010180498119baa300a302337540042940528180d800981218109baa0011630233024302430203754604660406ea800458cc02803894ccc078cdd7980698101baa300d30203754002601a60406ea80204c06cccc014dd5980318101baa001375c601a60406ea8c018c080dd5180398101baa01d375c600c60406ea8c018c080dd5180398101baa01d14a064646600200201c44a66604400229404c94ccc080cdc79bae302500200414a2266006006002604a0026eb8c084c078dd50008b1810180e9baa300a301d37546008603a6ea8068c05cccc004dd5980f98100029bae3009301c3754600460386ea8c00cc070dd500c9bae3002301c3754600460386ea8c00cc070dd500c91119299980e980d180f1baa0011480004dd69811180f9baa00132533301d301a301e37540022980103d87a8000132330010013756604660406ea8008894ccc088004530103d87a80001323232325333023337220100042a66604666e3c0200084c044cc09cdd4000a5eb80530103d87a8000133006006003375a60480066eb8c088008c098008c090004c8cc004004010894ccc0840045300103d87a80001323232325333022337220100042a66604466e3c0200084c040cc098dd3000a5eb80530103d87a8000133006006003375660460066eb8c084008c094008c08c0048c078c07c0048c074c078c078004c06c004c05cdd5180d180d980b9baa301a301737540022c660026eb0c06401c8cdd79802180b9baa00100922323300100100322533301a00114c0103d87a80001323253330193005002130073301d0024bd70099802002000980f001180e0009ba5480008c05c004dd6180a980b180b180b180b180b180b0011bac301400130143014001300f37540066022601c6ea800458c040c044008c03c004c02cdd50008a4c26cac600200a4a66600c6008600e6ea80044c8c8c8c8c8c94ccc03cc0480084c8c926533300d300b300e3754004264646464a666028602e00426464932999809180818099baa0021323232325333019301c002149858dd7180d000980d0011bae3018001301437540042ca666022601e60246ea800c4c8c8c8c94ccc060c06c0084c8c926325333017301500113232533301c301f002132498c94ccc068c0600044c8c94ccc07cc0880084c9263018001163020001301c37540042a666034602e0022646464646464a666046604c0042930b1bad30240013024002375a604400260440046eb4c080004c070dd50010b180d1baa00116301d001301937540062a66602e60280022a66603460326ea800c52616163017375400460220062c60320026032004602e00260266ea800c5858c054004c054008c04c004c03cdd50010b19198008008031129998088008a4c26466006006602a00464646eb8c048008dd7180800098098008b180800098080011bad300e001300e0023756601800260106ea8004588c94ccc018c0100044c8c94ccc02cc03800852616375c601800260106ea800854ccc018c00c0044c8c94ccc02cc03800852616375c601800260106ea800858c018dd50009b8748008dc3a4000ae6955ceaab9e5573eae815d0aba21",
+      "hash": "020f66cee3ccdf8f141adc432ad85fb4458d1f466193c12cb54f4e5c"
+    }
+  ],
+  "definitions": {
+    "ByteArray": {
+      "dataType": "bytes"
+    },
+    "Data": {
+      "title": "Data",
+      "description": "Any Plutus data."
+    },
+    "Int": {
+      "dataType": "integer"
+    },
+    "List$Pair$ByteArray_ByteArray": {
+      "dataType": "map",
+      "keys": {
+        "$ref": "#/definitions/ByteArray"
+      },
+      "values": {
+        "$ref": "#/definitions/ByteArray"
+      }
+    },
+    "Option$aiken/transaction/credential/Referenced$aiken/transaction/credential/Credential": {
+      "title": "Optional",
+      "anyOf": [
+        {
+          "title": "Some",
+          "description": "An optional value.",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "$ref": "#/definitions/aiken~1transaction~1credential~1Referenced$aiken~1transaction~1credential~1Credential"
+            }
+          ]
+        },
+        {
+          "title": "None",
+          "description": "Nothing.",
+          "dataType": "constructor",
+          "index": 1,
+          "fields": []
+        }
+      ]
+    },
+    "aiken/transaction/credential/Address": {
+      "title": "Address",
+      "description": "A Cardano `Address` typically holding one or two credential references.\n\n Note that legacy bootstrap addresses (a.k.a. 'Byron addresses') are\n completely excluded from Plutus contexts. Thus, from an on-chain\n perspective only exists addresses of type 00, 01, ..., 07 as detailed\n in [CIP-0019 :: Shelley Addresses](https://github.com/cardano-foundation/CIPs/tree/master/CIP-0019/#shelley-addresses).",
+      "anyOf": [
+        {
+          "title": "Address",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "payment_credential",
+              "$ref": "#/definitions/aiken~1transaction~1credential~1Credential"
+            },
+            {
+              "title": "stake_credential",
+              "$ref": "#/definitions/Option$aiken~1transaction~1credential~1Referenced$aiken~1transaction~1credential~1Credential"
+            }
+          ]
+        }
+      ]
+    },
+    "aiken/transaction/credential/Credential": {
+      "title": "Credential",
+      "description": "A general structure for representing an on-chain `Credential`.\n\n Credentials are always one of two kinds: a direct public/private key\n pair, or a script (native or Plutus).",
+      "anyOf": [
+        {
+          "title": "VerificationKeyCredential",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        },
+        {
+          "title": "ScriptCredential",
+          "dataType": "constructor",
+          "index": 1,
+          "fields": [
+            {
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        }
+      ]
+    },
+    "aiken/transaction/credential/Referenced$aiken/transaction/credential/Credential": {
+      "title": "Referenced",
+      "description": "Represent a type of object that can be represented either inline (by hash)\n or via a reference (i.e. a pointer to an on-chain location).\n\n This is mainly use for capturing pointers to a stake credential\n registration certificate in the case of so-called pointer addresses.",
+      "anyOf": [
+        {
+          "title": "Inline",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "$ref": "#/definitions/aiken~1transaction~1credential~1Credential"
+            }
+          ]
+        },
+        {
+          "title": "Pointer",
+          "dataType": "constructor",
+          "index": 1,
+          "fields": [
+            {
+              "title": "slot_number",
+              "$ref": "#/definitions/Int"
+            },
+            {
+              "title": "transaction_index",
+              "$ref": "#/definitions/Int"
+            },
+            {
+              "title": "certificate_index",
+              "$ref": "#/definitions/Int"
+            }
+          ]
+        }
+      ]
+    },
+    "nft_management_validator/Asset": {
+      "title": "Asset",
+      "anyOf": [
+        {
+          "title": "Asset",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "policy_id",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "asset_name",
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        }
+      ]
+    },
+    "nft_management_validator/Extra": {
+      "title": "Extra",
+      "anyOf": [
+        {
+          "title": "Extra",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "address",
+              "$ref": "#/definitions/aiken~1transaction~1credential~1Address"
+            },
+            {
+              "title": "nft",
+              "$ref": "#/definitions/nft_management_validator~1Asset"
+            }
+          ]
+        }
+      ]
+    },
+    "nft_management_validator/ValidatorDatum": {
+      "title": "ValidatorDatum",
+      "anyOf": [
+        {
+          "title": "ValidatorDatum",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "metadata",
+              "$ref": "#/definitions/List$Pair$ByteArray_ByteArray"
+            },
+            {
+              "title": "version",
+              "$ref": "#/definitions/Int"
+            },
+            {
+              "title": "extra",
+              "$ref": "#/definitions/nft_management_validator~1Extra"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
